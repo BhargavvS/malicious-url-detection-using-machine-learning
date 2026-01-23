@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cyber dark theme */
+    --background: 220 20% 4%;
+    --foreground: 180 100% 95%;
+
+    --card: 220 25% 8%;
+    --card-foreground: 180 100% 95%;
+
+    --popover: 220 25% 8%;
+    --popover-foreground: 180 100% 95%;
+
+    --primary: 174 100% 50%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 220 25% 15%;
+    --secondary-foreground: 180 100% 95%;
+
+    --muted: 220 20% 12%;
+    --muted-foreground: 180 20% 60%;
+
+    --accent: 174 100% 40%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 45%;
+    --success-foreground: 142 76% 95%;
+
+    --warning: 45 100% 50%;
+    --warning-foreground: 45 100% 10%;
+
+    --border: 174 50% 20%;
+    --input: 220 25% 12%;
+    --ring: 174 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Cyber glow effects */
+    --glow-primary: 0 0 20px hsl(174 100% 50% / 0.5), 0 0 40px hsl(174 100% 50% / 0.3);
+    --glow-success: 0 0 20px hsl(142 76% 45% / 0.5), 0 0 40px hsl(142 76% 45% / 0.3);
+    --glow-destructive: 0 0 20px hsl(0 85% 55% / 0.5), 0 0 40px hsl(0 85% 55% / 0.3);
+    --glow-warning: 0 0 20px hsl(45 100% 50% / 0.5), 0 0 40px hsl(45 100% 50% / 0.3);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(174 100% 50%), hsl(200 100% 50%));
+    --gradient-danger: linear-gradient(135deg, hsl(0 85% 55%), hsl(30 100% 50%));
+    --gradient-safe: linear-gradient(135deg, hsl(142 76% 45%), hsl(174 100% 50%));
+    --gradient-warning: linear-gradient(135deg, hsl(45 100% 50%), hsl(30 100% 50%));
+
+    /* Grid pattern */
+    --grid-color: hsl(174 50% 20% / 0.15);
+
+    --sidebar-background: 220 25% 6%;
+    --sidebar-foreground: 180 100% 95%;
+    --sidebar-primary: 174 100% 50%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 25% 12%;
+    --sidebar-accent-foreground: 180 100% 95%;
+    --sidebar-border: 174 50% 20%;
+    --sidebar-ring: 174 100% 50%;
+  }
+
+  .dark {
+    --background: 220 20% 4%;
+    --foreground: 180 100% 95%;
+    --card: 220 25% 8%;
+    --card-foreground: 180 100% 95%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 180 100% 95%;
+    --primary: 174 100% 50%;
+    --primary-foreground: 220 20% 4%;
+    --secondary: 220 25% 15%;
+    --secondary-foreground: 180 100% 95%;
+    --muted: 220 20% 12%;
+    --muted-foreground: 180 20% 60%;
+    --accent: 174 100% 40%;
+    --accent-foreground: 220 20% 4%;
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 174 50% 20%;
+    --input: 220 25% 12%;
+    --ring: 174 100% 50%;
+    --sidebar-background: 220 25% 6%;
+    --sidebar-foreground: 180 100% 95%;
+    --sidebar-primary: 174 100% 50%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 25% 12%;
+    --sidebar-accent-foreground: 180 100% 95%;
+    --sidebar-border: 174 50% 20%;
+    --sidebar-ring: 174 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+  }
+}
+
+@layer utilities {
+  .cyber-glow {
+    box-shadow: var(--glow-primary);
+  }
+
+  .cyber-glow-success {
+    box-shadow: var(--glow-success);
+  }
+
+  .cyber-glow-danger {
+    box-shadow: var(--glow-destructive);
+  }
+
+  .cyber-glow-warning {
+    box-shadow: var(--glow-warning);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .scanline {
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      hsl(174 100% 50% / 0.03) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+  }
+}
